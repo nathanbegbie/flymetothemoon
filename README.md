@@ -1,18 +1,27 @@
 # Flymetothemoon
 
-To start your Phoenix server:
+This is a trial project to see if I can manage and host an application on a server that I manage. 
 
-* Run `mix setup` to install and setup dependencies
-* Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+The overall goals of this are:
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+1. Demonstrate easy setup with a local setup_script
+1. Provision a server on Hetzner using OpenTofu
+1. Set up a straightforward CI/CD pipeline with GH actions, to 
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Stretch Goals
 
-## Learn more
+1. Automatic backups
+1. Automated or Semi-Automated Upgrades of Elixir/Erlang
+1. Playbooks for increasing or decreasing resources on Hetzner with minimal downtime.
+1. Automatic DNS setup.
 
-* Official website: https://www.phoenixframework.org/
-* Guides: https://hexdocs.pm/phoenix/overview.html
-* Docs: https://hexdocs.pm/phoenix
-* Forum: https://elixirforum.com/c/phoenix-forum
-* Source: https://github.com/phoenixframework/phoenix
+## Motivation
+
+I got fed up with trying to understand what the hell was going on with various
+PaaS providers. At the end of the day, with Coding Agents drastically reducing the
+barrier to IaC and deploy scripts, the use of these platforms, _specifically for
+side-projects_ tend to become a bit of a nightmare after 3-4 years.
+When you set and forget, the PaaS keeps moving. 
+While I am obviously trading off the complexity of a specific service, for that of
+running things on a server that I manage and maintain, I believe it is a worthwhile
+tradeoff, as the skills developed here are more transferable than a specific provider.
