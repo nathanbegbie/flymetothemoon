@@ -8,6 +8,11 @@ output "server_name" {
   value       = hcloud_server.app_server.name
 }
 
+output "server_ipv4" {
+  description = "IPv4 address of the server"
+  value       = hcloud_server.app_server.ipv4_address
+}
+
 output "server_ipv6" {
   description = "IPv6 address of the server"
   value       = hcloud_server.app_server.ipv6_address
@@ -19,8 +24,8 @@ output "server_status" {
 }
 
 output "ssh_command" {
-  description = "SSH command to connect to the server (using IPv6)"
-  value       = "ssh root@${hcloud_server.app_server.ipv6_address}"
+  description = "SSH command to connect to the server (using IPv4)"
+  value       = "ssh root@${hcloud_server.app_server.ipv4_address}"
 }
 
 output "firewall_id" {

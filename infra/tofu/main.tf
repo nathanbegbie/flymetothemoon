@@ -1,4 +1,7 @@
-data "hcloud_ssh_keys" "all_keys" {
+# Look up specific SSH keys by name
+data "hcloud_ssh_key" "selected_keys" {
+  for_each = toset(var.ssh_keys)
+  name     = each.value
 }
 
 # Firewall to protect the server
@@ -56,10 +59,10 @@ resource "hcloud_server" "app_server" {
   server_type = var.server_type
   image       = var.image
   location    = var.location
-  ssh_keys    = data.hcloud_ssh_keys.all_keys.ssh_keys.*.name
+  ssh_keys    = [for key in data.hcloud_ssh_key.selected_keys : key.id]
   backups     = var.enable_backups
   public_net {
-    ipv4_enabled = false
+    ipv4_enabled = true
     ipv6_enabled = var.enable_ipv6
   }
 
