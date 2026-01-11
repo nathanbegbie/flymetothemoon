@@ -3,6 +3,17 @@ name: Build and Deploy
 on:
   push:
     branches: [main]
+    paths:
+      - 'lib/**'
+      - 'config/**'
+      - 'priv/**'
+      - 'assets/**'
+      - 'mix.exs'
+      - 'mix.lock'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - '.dockerignore'
+      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 env:
